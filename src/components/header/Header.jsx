@@ -4,6 +4,7 @@ import "./Header.scss";
 
 const Header = () => {
   const [open, setIsOpen] = useState(false);
+  const [dropdown, setIsOpens] = useState(false);
   return (
     <header className="header">
       <div className="container-header">
@@ -36,7 +37,24 @@ const Header = () => {
             )}
             <div className="nav-link">
               <p className="line"></p>
-              <a href="#">Продукция</a>
+              <button
+                onClick={() => setIsOpens(!dropdown)}
+                className="dropDown"
+              >
+                Продукция
+              </button>
+              {dropdown && (
+                <div className="dropDownMenu">
+                  <p className="dropDownMenus">
+                    <p>ламинатные тубы</p>
+                    <br />
+                    <p>экструзионные тубы</p>
+                    <br />
+                    <p>другая упаковка</p>
+                  </p>
+                </div>
+              )}
+
               <p className="line"></p>
               <a href="#">Сертификаты</a>
               <p className="line"></p>
